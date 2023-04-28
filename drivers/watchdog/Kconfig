@@ -2086,6 +2086,17 @@ config XEN_WDT
 	  by Xen 4.0 and newer.  The watchdog timeout period is normally one
 	  minute but can be changed with a boot-time parameter.
 
+# Virtio Architecture
+
+config VIRTIO_WDT
+	tristate "Virtio Watchdog driver"
+	depends on VIRTIO
+	select WATCHDOG_CORE
+	help
+	  Say Y here to support the hypervisor watchdog capability provided
+	  by Virtio.  The watchdog timeout period is normally half one
+	  minute but can be changed with a boot-time parameter.
+
 config UML_WATCHDOG
 	tristate "UML watchdog"
 	depends on UML || COMPILE_TEST
